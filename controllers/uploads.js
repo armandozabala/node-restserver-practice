@@ -12,9 +12,6 @@ const { Usuario, Producto } = require('../models');
 const cargarArchivo = async ( req= request, res = response) => {
 
     
-
-
-
     try {
            //Imagenes
             const pathCompleto = await subirArchivo(req.files, undefined, 'imgs');
@@ -134,7 +131,6 @@ const mostrarImagen = async ( req, res = response) => {
 
     const { id, coleccion } = req.params;
 
-
     let modelo;
 
     switch (coleccion) {
@@ -161,10 +157,13 @@ const mostrarImagen = async ( req, res = response) => {
     //Limpiar imagenes previas
     if ( modelo.img ) {
         // Hay que borrar la imagen del servidor
-        const pathImagen = path.join( __dirname, '../uploads', coleccion, modelo.img );
+        /*const pathImagen = path.join( __dirname, '../uploads', coleccion, modelo.img );
         if ( fs.existsSync( pathImagen ) ) {
             return res.sendFile( pathImagen )
-        }
+        }*/
+        return res.json({
+            img: modelo.img
+        })
 
     }
 
