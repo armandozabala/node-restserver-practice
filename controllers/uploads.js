@@ -29,6 +29,7 @@ const cargarArchivo = async ( req= request, res = response) => {
 
 }
 
+//imagenes locales en directorio
 const actualizarImagen = async (req = request, res = response ) => {
 
     const { id, coleccion } = req.params;
@@ -78,6 +79,7 @@ const actualizarImagen = async (req = request, res = response ) => {
 
 }
 
+//en clodinary
 const actualizarImagenCloudinary = async (req = request, res = response ) => {
 
     const { id, coleccion } = req.params;
